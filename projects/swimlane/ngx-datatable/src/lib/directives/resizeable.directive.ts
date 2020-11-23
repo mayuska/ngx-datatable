@@ -24,7 +24,7 @@ export class ResizeableDirective implements OnDestroy, AfterViewInit {
   @Input() maxWidth: number;
 
   @Output() resize: EventEmitter<any> = new EventEmitter();
-  /** Temporary event until https://github.com/swimlane/ngx-datatable/issues/1942 is resolved */
+  /** Temporary event until git */
   @Output() resizeStart: EventEmitter<boolean> = new EventEmitter();
 
   element: HTMLElement;
