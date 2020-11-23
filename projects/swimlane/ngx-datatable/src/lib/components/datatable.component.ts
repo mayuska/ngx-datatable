@@ -458,6 +458,9 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
    */
   @Output() treeAction: EventEmitter<any> = new EventEmitter();
 
+  /** Temporary event until https://github.com/swimlane/ngx-datatable/issues/1942 is resolved */
+  @Output() resizeStart: EventEmitter<boolean> = new EventEmitter();
+
   /**
    * CSS class applied if the header height if fixed height.
    */

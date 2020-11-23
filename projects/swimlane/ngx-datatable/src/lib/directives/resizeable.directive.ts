@@ -24,6 +24,8 @@ export class ResizeableDirective implements OnDestroy, AfterViewInit {
   @Input() maxWidth: number;
 
   @Output() resize: EventEmitter<any> = new EventEmitter();
+  /** Temporary event until https://github.com/swimlane/ngx-datatable/issues/1942 is resolved */
+  @Output() resizeStart: EventEmitter<boolean> = new EventEmitter();
 
   element: HTMLElement;
   subscription: Subscription;
@@ -71,6 +73,7 @@ export class ResizeableDirective implements OnDestroy, AfterViewInit {
 
     if (isHandle) {
       event.stopPropagation();
+      this.resizeStart.emit(true);
       this.resizing = true;
 
       const mouseup = fromEvent(document, 'mouseup');

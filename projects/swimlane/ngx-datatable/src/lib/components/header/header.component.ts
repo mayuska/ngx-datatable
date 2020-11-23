@@ -34,6 +34,7 @@ import { translateXY } from '../../utils/translate';
           resizeable
           [resizeEnabled]="column.resizeable"
           (resize)="onColumnResized($event, column)"
+          (resizeStart)="resizeStart.emit($event)"
           long-press
           [pressModel]="column"
           [pressEnabled]="reorderable && column.draggable"
@@ -145,6 +146,8 @@ export class DataTableHeaderComponent implements OnDestroy {
   @Output() resize: EventEmitter<any> = new EventEmitter();
   @Output() select: EventEmitter<any> = new EventEmitter();
   @Output() columnContextmenu = new EventEmitter<{ event: MouseEvent; column: any }>(false);
+  /** Temporary event until https://github.com/swimlane/ngx-datatable/issues/1942 is resolved */
+  @Output() resizeStart: EventEmitter<boolean> = new EventEmitter();
 
   _columnsByPin: any;
   _columnGroupWidths: any = {

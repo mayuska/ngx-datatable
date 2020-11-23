@@ -18,6 +18,7 @@
     [selectionType]="selectionType"
     (sort)="onColumnSort($event)"
     (resize)="onColumnResize($event)"
+    (resizeStart)="resizeStart.emit($event)"
     (reorder)="onColumnReorder($event)"
     (select)="onHeaderSelect($event)"
     (columnContextmenu)="onColumnContextmenu($event)"
