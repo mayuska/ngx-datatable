@@ -1,5 +1,13 @@
 # Changelog
 
+## 20.0.0
+
+- Breaking: Update to angular 12
+
+## 19.0.0
+
+- Breaking: Update to angular 11
+
 ## 18.0.0
 
 - Breaking: Update to angular 10
