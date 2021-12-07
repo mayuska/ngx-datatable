@@ -14,6 +14,12 @@ Check out the [documentation](https://swimlane.gitbook.io/ngx-datatable/) & [dem
 
 See the [changelog](https://github.com/swimlane/ngx-datatable/blob/master/docs/changelog.md) for recent changes.
 
+## Forked
+
+Forked for fixing some outstanding issues since PRs are not getting merged:
+
+-
+
 ## Features
 
 - Handle large data sets ( Virtual DOM )
@@ -37,7 +43,7 @@ See the [changelog](https://github.com/swimlane/ngx-datatable/blob/master/docs/c
 To use ngx-datatable in your project install it via [npm](https://www.npmjs.com/package/@swimlane/ngx-datatable):
 
 ```
-npm i @swimlane/ngx-datatable --save
+npm i at-ngx-datatable --save
 ```
 
 ## Credits
