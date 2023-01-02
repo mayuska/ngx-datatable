@@ -4,6 +4,7 @@
 ## Publish
 
 test: `npm run package` or `npm run prepublish:lib`
+
 publish: `npm run publish:lib` (update version in package, package-lock, projects/swimlane/ngx-datatable/package.json)
 
 ## Installation
