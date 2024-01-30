@@ -26,6 +26,7 @@
   >
   </datatable-header>
   <datatable-body
+    [reorderableRows]="reorderableRows"
     role="rowgroup"
     [groupRowsBy]="groupRowsBy"
     [groupedRows]="groupedRows"
@@ -63,6 +64,7 @@
     (select)="onBodySelect($event)"
     (scroll)="onBodyScroll($event)"
     (treeAction)="onTreeAction($event)"
+    (rowsReorder)="onRowsReordered($event)"
   >
   </datatable-body>
   <datatable-footer

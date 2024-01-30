@@ -45,6 +45,7 @@ import { DimensionsHelper } from '../services/dimensions-helper.service';
 import { throttleable } from '../utils/throttle';
 import { forceFillColumnWidths, adjustColumnWidths } from '../utils/math';
 import { sortRows } from '../utils/sort';
+import { NgxRowReorder } from '../types/reorder.type';
 
 @Component({
   selector: 'ngx-datatable',
@@ -282,6 +283,8 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
    */
   @Input() reorderable: boolean = true;
 
+  /** Enable/Disable ability to re-order rows by dragging them. */
+  @Input() reorderableRows = false;
   /**
    * Swap columns on re-order columns or
    * move them.
@@ -460,6 +463,9 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
 
   /** Temporary event until https://github.com/swimlane/ngx-datatable/issues/1942 is resolved */
   @Output() resizeStart: EventEmitter<boolean> = new EventEmitter();
+
+  /** Emittes when rows are reordered by draging (requires {@link reorderableRows} to be enabled. */
+  @Output() rowsReorder: EventEmitter<NgxRowReorder> = new EventEmitter();
 
   /**
    * CSS class applied if the header height if fixed height.
@@ -1124,6 +1130,11 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
    */
   onBodySelect(event: any): void {
     this.select.emit(event);
+  }
+
+  /** Detects row reordering and emits changes. */
+  public onRowsReordered(event: NgxRowReorder) {
+    this.rowsReorder.emit(event)
   }
 
   /**

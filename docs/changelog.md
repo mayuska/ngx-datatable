@@ -1,5 +1,28 @@
 # Changelog
 
+## 21.0.0
+
+### Features:
+1. Add support for draggable rows via angular [dragDrop](https://material.angular.io/cdk/drag-drop/overview).
+- New dependency: "[@angular/cdk](https://www.npmjs.com/package/@angular/cdk)".
+- New input "reorderableRows" for enable/disable row reordering. False by default.
+- New event and interface for emitted data: "rowsReorder" that emits data with "NgxRowReorder" interface.
+
+usage example:
+```angular2html
+<ngx-datatable [reorderableRows]="true"
+               (rowsReorder)="yourMethodForDetectingReorderChange($event)">
+</ngx-datatable>
+```
+TS:
+```ts
+public yourMethodForDetectingReorderChange(reorderEvent: NgxRowReorder) {
+ // your logic on rows reordering
+}
+```
+
+ 
+
 ## 20.1.0
 
 - Chore: Support for angular 13+

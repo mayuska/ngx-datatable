@@ -15,6 +15,8 @@ import { SelectionType } from '../../types/selection.type';
 import { columnsByPin, columnGroupWidths } from '../../utils/column';
 import { RowHeightCache } from '../../utils/row-height-cache';
 import { translateXY } from '../../utils/translate';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { NgxRowReorder } from '../../types/reorder.type';
 
 @Component({
   selector: 'datatable-body',
@@ -32,6 +34,8 @@ import { translateXY } from '../../utils/translate';
       (activate)="activate.emit($event)"
     >
       <datatable-scroller
+        cdkDropList
+        (cdkDropListDropped)="onDragEnded($event)"
         *ngIf="rows?.length"
         [scrollbarV]="scrollbarV"
         [scrollbarH]="scrollbarH"
@@ -49,6 +53,10 @@ import { translateXY } from '../../utils/translate';
         >
         </datatable-summary-row>
         <datatable-row-wrapper
+          cdkDrag
+          [cdkDragPreviewClass]="'ngx-drag-preview'"
+          [cdkDragDisabled]="!reorderableRows"
+          [cdkDragData]="this"
           [groupedRows]="groupedRows"
           *ngFor="let group of temp; let i = index; trackBy: rowTrackingFn"
           [innerWidth]="innerWidth"
@@ -138,6 +146,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   @Input() displayCheck: any;
   @Input() trackByProp: string;
   @Input() rowClass: any;
+  @Input() reorderableRows: boolean;
   @Input() groupedRows: any;
   @Input() groupExpansionDefault: boolean;
   @Input() innerWidth: number;
@@ -225,6 +234,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   @Output() detailToggle: EventEmitter<any> = new EventEmitter();
   @Output() rowContextmenu = new EventEmitter<{ event: MouseEvent; row: any }>(false);
   @Output() treeAction: EventEmitter<any> = new EventEmitter();
+  @Output() rowsReorder: EventEmitter<NgxRowReorder> = new EventEmitter();
 
   @ViewChild(ScrollerComponent) scroller: ScrollerComponent;
 
@@ -349,6 +359,19 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
     this.scroller.setOffset(offset || 0);
   }
 
+  /** Emits reordered rows and {@link CdkDragDrop} event. */
+  onDragEnded(event: CdkDragDrop<any>) {
+    const previousOrder = [...this._rows];
+    moveItemInArray(this.rows, event.previousIndex, event.currentIndex);
+    this.updateRows();
+    this.rowsReorder.emit({
+      current: this._rows,
+      previous: previousOrder,
+      currentIndex: event.currentIndex,
+      previousIndex: event.previousIndex,
+      event
+    })
+  }
   /**
    * Body was scrolled, this is mainly useful for
    * when a user is server-side pagination via virtual scroll.
