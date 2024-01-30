@@ -1,4 +1,5 @@
 import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
+import { ScrollbarHelper } from '../../services/scrollbar-helper.service';
 import { DataTableBodyComponent } from './body.component';
 import { DataTableBodyRowComponent } from './body-row.component';
 import { DataTableRowWrapperComponent } from './body-row-wrapper.component';
@@ -7,7 +8,6 @@ import { DataTableSelectionComponent } from './selection.component';
 import { DataTableSummaryRowComponent } from './summary/summary-row.component';
 import { ProgressBarComponent } from './progress-bar.component';
 import { ScrollerComponent } from './scroller.component';
-import { ScrollbarHelper } from '../../services/scrollbar-helper.service';
 
 describe('DataTableBodyComponent', () => {
   let fixture: ComponentFixture<DataTableBodyComponent>;

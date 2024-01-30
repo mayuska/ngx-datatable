@@ -9,8 +9,8 @@ import {
   OnDestroy,
   Inject
 } from '@angular/core';
-import { DraggableDirective } from './draggable.directive';
 import { DOCUMENT } from '@angular/common';
+import { DraggableDirective } from './draggable.directive';
 
 @Directive({ selector: '[orderable]' })
 export class OrderableDirective implements AfterContentInit, OnDestroy {

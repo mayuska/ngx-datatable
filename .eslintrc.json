@@ -1,0 +1,91 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/template/process-inline-templates"
+
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "lib",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "lib",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        "@typescript-eslint/consistent-type-assertions": "off",
+        "@typescript-eslint/explicit-member-accessibility": ["warn", {
+          "overrides": {
+            "constructors": "no-public"
+          },
+          "accessibility": "explicit"
+        }],
+        "@typescript-eslint/member-delimiter-style": "warn",
+        "@typescript-eslint/member-ordering": "warn",
+        "arrow-body-style": "off",
+        "prefer-arrow/prefer-arrow-functions": "warn",
+        "jsdoc/newline-after-description": "off",
+        "jsdoc/check-alignment": "warn",
+        "import/order": "warn",
+        "@typescript-eslint/naming-convention": ["warn", {
+          "selector": "variable",
+          "format": ["camelCase", "PascalCase", "UPPER_CASE"]
+        }],
+        "semi": "warn",
+        "@typescript-eslint/semi": ["off"],
+        "eol-last": "warn",
+        "prefer-const": "warn",
+        "no-trailing-spaces": "warn",
+        "@typescript-eslint/type-annotation-spacing": "warn",
+        "max-len": [
+          "warn",
+          {
+            "code": 140
+          }
+        ],
+        "no-bitwise": "warn",
+        "guard-for-in": "warn",
+        "@typescript-eslint/quotes": ["warn", "single"],
+        "no-underscore-dangle": "warn",
+        "@angular-eslint/no-output-native": "warn",
+        "object-shorthand": "warn",
+        "@typescript-eslint/prefer-for-of":"off",
+        "@typescript-eslint/no-empty-interface": "off"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

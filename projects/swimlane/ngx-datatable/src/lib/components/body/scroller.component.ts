@@ -17,15 +17,15 @@ import { MouseEvent } from '../../events';
 
 @Component({
   selector: 'datatable-scroller',
-  template: ` <ng-content></ng-content> `,
+  template: ' <ng-content></ng-content> ',
   host: {
     class: 'datatable-scroll'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScrollerComponent implements OnInit, OnDestroy {
-  @Input() scrollbarV: boolean = false;
-  @Input() scrollbarH: boolean = false;
+  @Input() scrollbarV = false;
+  @Input() scrollbarH = false;
 
   @HostBinding('style.height.px')
   @Input()
@@ -39,10 +39,10 @@ export class ScrollerComponent implements OnInit, OnDestroy {
 
   @Output() scroll: EventEmitter<any> = new EventEmitter();
 
-  scrollYPos: number = 0;
-  scrollXPos: number = 0;
-  prevScrollYPos: number = 0;
-  prevScrollXPos: number = 0;
+  scrollYPos = 0;
+  scrollXPos = 0;
+  prevScrollYPos = 0;
+  prevScrollXPos = 0;
   element: any;
   parentElement: any;
   onScrollListener: any;

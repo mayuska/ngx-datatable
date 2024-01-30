@@ -4,9 +4,9 @@ import { By } from '@angular/platform-browser';
 
 import { DataTableBodyRowComponent } from '../body-row.component';
 import { DataTableBodyCellComponent } from '../body-cell.component';
-import { DataTableSummaryRowComponent, ISummaryColumn } from './summary-row.component';
 import { ScrollbarHelper } from '../../../services/scrollbar-helper.service';
 import { setColumnDefaults } from '../../../utils/column-helper';
+import { DataTableSummaryRowComponent, ISummaryColumn } from './summary-row.component';
 
 describe('DataTableSummaryRowComponent', () => {
   let fixture: ComponentFixture<DataTableSummaryRowComponent>;

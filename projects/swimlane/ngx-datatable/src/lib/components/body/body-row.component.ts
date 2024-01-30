@@ -14,11 +14,11 @@ import {
   SkipSelf
 } from '@angular/core';
 
-import { TreeStatus } from './body-cell.component';
 import { columnsByPin, columnGroupWidths, columnsByPinArr } from '../../utils/column';
 import { Keys } from '../../utils/keys';
 import { ScrollbarHelper } from '../../services/scrollbar-helper.service';
 import { translateXY } from '../../utils/translate';
+import { TreeStatus } from './body-cell.component';
 
 @Component({
   selector: 'datatable-body-row',

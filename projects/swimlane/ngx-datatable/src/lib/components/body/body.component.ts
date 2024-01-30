@@ -10,13 +10,13 @@ import {
   OnDestroy,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { ScrollerComponent } from './scroller.component';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { SelectionType } from '../../types/selection.type';
 import { columnsByPin, columnGroupWidths } from '../../utils/column';
 import { RowHeightCache } from '../../utils/row-height-cache';
 import { translateXY } from '../../utils/translate';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgxRowReorder } from '../../types/reorder.type';
+import { ScrollerComponent } from './scroller.component';
 
 @Component({
   selector: 'datatable-body',
@@ -370,7 +370,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
       currentIndex: event.currentIndex,
       previousIndex: event.previousIndex,
       event
-    })
+    });
   }
   /**
    * Body was scrolled, this is mainly useful for

@@ -2,13 +2,13 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component, ElementRef } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+import { id } from '../utils/id';
 import { OrderableDirective } from './orderable.directive';
 import { DraggableDirective } from './draggable.directive';
-import { id } from '../utils/id';
 
 @Component({
   selector: 'test-fixture-component',
-  template: ` <div orderable></div> `
+  template: ' <div orderable></div> '
 })
 class TestFixtureComponent {}
 
@@ -75,7 +75,7 @@ describe('OrderableDirective', () => {
       }
 
       function newDraggable() {
-        // tslint:disable-next-line: no-object-literal-type-assertion
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const draggable = new DraggableDirective(<ElementRef>{});
 
         // used for the KeyValueDiffer

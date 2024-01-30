@@ -78,7 +78,7 @@ export class DataTableRowWrapperComponent implements DoCheck {
   rowContext: any;
 
   private rowDiffer: KeyValueDiffer<{}, {}>;
-  private _expanded: boolean = false;
+  private _expanded = false;
   private _rowIndex: number;
 
   constructor(private cd: ChangeDetectorRef, private differs: KeyValueDiffers) {
@@ -111,11 +111,11 @@ export class DataTableRowWrapperComponent implements DoCheck {
   }
 
   getGroupHeaderStyle(): any {
-    const styles = {};
+    const styles: any = {};
 
-    styles['transform'] = 'translate3d(' + this.offsetX + 'px, 0px, 0px)';
+    styles.transform = 'translate3d(' + this.offsetX + 'px, 0px, 0px)';
     styles['backface-visibility'] = 'hidden';
-    styles['width'] = this.innerWidth;
+    styles.width = this.innerWidth;
 
     return styles;
   }

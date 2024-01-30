@@ -16,7 +16,7 @@ describe('DataTableFooterComponent', () => {
   beforeEach(waitForAsync(setupTest));
 
   describe('div.datatable-footer-inner', () => {
-    it(`should have a height`, () => {
+    it('should have a height', () => {
       component.footerHeight = 123;
       page.detectChangesAndRunQueries();
 
