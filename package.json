@@ -42,7 +42,7 @@
     "@angular/router": "^16.2.12",
     "rxjs": "^6.6.7",
     "tslib": "^2.3.1",
-    "zone.js": "~0.13.3"
+    "zone.js": "^0.14.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.2.12",
@@ -87,7 +87,7 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-config-security": "^1.16.0",
     "tslint-config-swimlane": "^5.0.0",
-    "typescript": "^5.0.3"
+    "typescript": "^5.3.3"
   },
   "husky": {
     "hooks": {
