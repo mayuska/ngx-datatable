@@ -28,6 +28,9 @@
     "publish": "run-s publish:lib deploy-docs",
     "prepublishOnly": "echo \"This is the workspace -- you probably meant run 'npm run publish'.\" && exit 1"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.1.1",
