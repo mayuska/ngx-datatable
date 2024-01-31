@@ -19,7 +19,6 @@
         "plugin:@angular-eslint/ng-cli-compat",
         "plugin:@angular-eslint/ng-cli-compat",
         "plugin:@angular-eslint/template/process-inline-templates"
-
       ],
       "rules": {
         "@angular-eslint/component-selector": [
@@ -39,12 +38,15 @@
           }
         ],
         "@typescript-eslint/consistent-type-assertions": "off",
-        "@typescript-eslint/explicit-member-accessibility": ["warn", {
-          "overrides": {
-            "constructors": "no-public"
-          },
-          "accessibility": "explicit"
-        }],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "warn",
+          {
+            "overrides": {
+              "constructors": "no-public"
+            },
+            "accessibility": "explicit"
+          }
+        ],
         "@typescript-eslint/member-delimiter-style": "warn",
         "@typescript-eslint/member-ordering": "warn",
         "arrow-body-style": "off",
@@ -52,12 +54,21 @@
         "jsdoc/newline-after-description": "off",
         "jsdoc/check-alignment": "warn",
         "import/order": "warn",
-        "@typescript-eslint/naming-convention": ["warn", {
-          "selector": "variable",
-          "format": ["camelCase", "PascalCase", "UPPER_CASE"]
-        }],
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            "selector": "variable",
+            "format": [
+              "camelCase",
+              "PascalCase",
+              "UPPER_CASE"
+            ]
+          }
+        ],
         "semi": "warn",
-        "@typescript-eslint/semi": ["off"],
+        "@typescript-eslint/semi": [
+          "off"
+        ],
         "eol-last": "warn",
         "prefer-const": "warn",
         "no-trailing-spaces": "warn",
@@ -70,11 +81,14 @@
         ],
         "no-bitwise": "warn",
         "guard-for-in": "warn",
-        "@typescript-eslint/quotes": ["warn", "single"],
+        "@typescript-eslint/quotes": [
+          "warn",
+          "single"
+        ],
         "no-underscore-dangle": "warn",
         "@angular-eslint/no-output-native": "warn",
         "object-shorthand": "warn",
-        "@typescript-eslint/prefer-for-of":"off",
+        "@typescript-eslint/prefer-for-of": "off",
         "@typescript-eslint/no-empty-interface": "off"
       }
     },
