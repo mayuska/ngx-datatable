@@ -1,6 +1,11 @@
-# Changelog
+# at-ngx-datatable
 
-## 21.0.0
+##  7.0.0
+
+### Breaking changes:
+- Update to angular 17
+- Replace tslint with esLint
+- Add angular material as dependency
 
 ### Features:
 1. Add support for draggable rows via angular [dragDrop](https://material.angular.io/cdk/drag-drop/overview).
@@ -21,7 +26,8 @@ public yourMethodForDetectingReorderChange(reorderEvent: NgxRowReorder) {
 }
 ```
 
- 
+
+# ngx-datatable
 
 ## 20.1.0
 
