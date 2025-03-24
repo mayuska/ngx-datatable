@@ -1,0 +1,49 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+<<<<<<< HEAD
+    "target": "ES2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+=======
+    "target": "es2022",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2022", "dom"],
+>>>>>>> master
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "paths": {
+<<<<<<< HEAD
+      "@swimlane/ngx-datatable": [
+        "dist/swimlane/ngx-datatable"
+      ],
+      "@swimlane/ngx-datatable/*": [
+        "dist/swimlane/ngx-datatable/*"
+      ]
+=======
+      "@swimlane/ngx-datatable": ["dist/swimlane/ngx-datatable"],
+      "@swimlane/ngx-datatable/*": ["dist/swimlane/ngx-datatable/*"]
+>>>>>>> master
+    },
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "strictTemplates": true,
+  }
+}

@@ -5,29 +5,20 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "es2020",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "target": "es2022",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2022", "dom"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@swimlane/ngx-datatable": [
-        "dist/swimlane/ngx-datatable"
-      ],
-      "@swimlane/ngx-datatable/*": [
-        "dist/swimlane/ngx-datatable/*"
-      ]
+      "@swimlane/ngx-datatable": ["dist/swimlane/ngx-datatable"],
+      "@swimlane/ngx-datatable/*": ["dist/swimlane/ngx-datatable/*"]
     },
     "useDefineForClassFields": false
   },
@@ -35,5 +26,6 @@
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "strictTemplates": true,
+    "enableIvy": true
   }
 }

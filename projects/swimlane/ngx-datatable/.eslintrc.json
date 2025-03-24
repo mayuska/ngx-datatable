@@ -1,43 +1,37 @@
 {
-  "extends": "../../../.eslintrc.json",
-  "ignorePatterns": [
-    "!**/*"
-  ],
+  "extends": "../../../.eslintrc.js",
+  "ignorePatterns": [],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
         "project": [
           "projects/swimlane/ngx-datatable/tsconfig.lib.json",
+          "projects/swimlane/ngx-datatable/tsconfig.lib.prod.json",
           "projects/swimlane/ngx-datatable/tsconfig.spec.json"
-        ],
-        "createDefaultProgram": true
+        ]
       },
       "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "lib",
-            "style": "camelCase"
-          }
-        ],
         "@angular-eslint/component-selector": [
           "error",
           {
             "type": "element",
-            "prefix": "lib",
+            "prefix": "",
             "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "",
+            "style": "camelCase"
           }
         ]
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
+      "files": ["*.html"],
       "rules": {}
     }
   ]

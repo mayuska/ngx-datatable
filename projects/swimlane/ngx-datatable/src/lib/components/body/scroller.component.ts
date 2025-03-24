@@ -1,29 +1,30 @@
 import {
-  Component,
-  Input,
-  ElementRef,
-  Output,
-  EventEmitter,
-  Renderer2,
-  NgZone,
-  OnInit,
-  OnDestroy,
-  HostBinding,
   ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostBinding,
+  inject,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  Renderer2,
   HostListener
 } from '@angular/core';
 
-import { MouseEvent } from '../../events';
-
 @Component({
   selector: 'datatable-scroller',
-  template: ' <ng-content></ng-content> ',
+  template: ` <ng-content></ng-content> `,
   host: {
     class: 'datatable-scroll'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true
 })
 export class ScrollerComponent implements OnInit, OnDestroy {
+  private renderer = inject(Renderer2);
+
   @Input() scrollbarV = false;
   @Input() scrollbarH = false;
 
@@ -43,15 +44,10 @@ export class ScrollerComponent implements OnInit, OnDestroy {
   scrollXPos = 0;
   prevScrollYPos = 0;
   prevScrollXPos = 0;
-  element: any;
-  parentElement: any;
-  onScrollListener: any;
+  element = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
+  parentElement: HTMLElement;
 
   private _scrollEventListener: any = null;
-
-  constructor(private ngZone: NgZone, element: ElementRef, private renderer: Renderer2) {
-    this.element = element.nativeElement;
-  }
 
   /**
    * Decrease scrollWidth by window scrollbar width.

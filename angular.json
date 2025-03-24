@@ -1,10 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "b0fec727-d21d-49bf-b321-5c65a26c8df5",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "analytics": "b0fec727-d21d-49bf-b321-5c65a26c8df5"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -21,27 +18,23 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ngx-datatable",
+            "outputPath": {
+              "base": "dist/ngx-datatable",
+              "browser": ""
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": [],
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -56,8 +49,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -67,7 +58,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "16kb"
                 }
               ]
             }
@@ -77,11 +68,16 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "ngx-datatable:build"
+            "buildTarget": "ngx-datatable:build",
+            "hmr": true
           },
           "configurations": {
             "production": {
               "buildTarget": "ngx-datatable:build:production"
+            },
+            "development": {
+              "buildTarget": "ngx-datatable:build:production",
+              "hmr": true
             }
           }
         },
@@ -98,14 +94,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html", "cypress/**/*.js"]
           }
         },
         "e2e": {
@@ -122,7 +119,7 @@
         }
       }
     },
-    "at-ngx-datatable": {
+    "@swimlane/ngx-datatable": {
       "projectType": "library",
       "root": "projects/swimlane/ngx-datatable",
       "sourceRoot": "projects/swimlane/ngx-datatable/src",
@@ -144,28 +141,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/swimlane/ngx-datatable/src/test.ts",
-            "tsConfig": "projects/swimlane/ngx-datatable/tsconfig.spec.json",
-            "karmaConfig": "projects/swimlane/ngx-datatable/karma.conf.js"
+            "tsConfig": "projects/swimlane/ngx-datatable/tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/swimlane/ngx-datatable/**/*.ts",
-              "projects/swimlane/ngx-datatable/**/*.html"
+              "projects/swimlane/ngx-datatable/src/**/*.ts",
+              "projects/swimlane/ngx-datatable/src/**/*.html"
             ]
           }
         }
       }
-    }
-  },
-  "schematics": {
-    "@angular-eslint/schematics:application": {
-      "setParserOptionsProject": true
-    },
-    "@angular-eslint/schematics:library": {
-      "setParserOptionsProject": true
     }
   }
 }
