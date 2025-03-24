@@ -329,6 +329,8 @@ export class DatatableComponent<TRow = any>
    * by dragging them.
    */
   @Input({ transform: booleanAttribute }) reorderable = true;
+  /** Enable/Disable ability to re-order rows by dragging them. */
+  @Input() reorderableRows = false;
 
   /**
    * Swap columns on re-order columns or

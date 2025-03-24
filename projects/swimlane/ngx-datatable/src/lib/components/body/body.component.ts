@@ -15,7 +15,7 @@ import {
   TrackByFunction,
   ViewChild
 } from '@angular/core';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgxRowReorder } from '../../types/reorder.type';
 import { ScrollerComponent } from './scroller.component';
 import { columnGroupWidths, columnsByPin } from '../../utils/column';
@@ -270,7 +270,9 @@ import { DataTableGhostLoaderComponent } from './ghost-loader/ghost-loader.compo
     NgStyle,
     DatatableRowDefInternalDirective,
     DataTableBodyRowComponent,
-    DraggableDirective
+    DraggableDirective,
+    CdkDropList,
+    CdkDrag
   ]
 })
 export class DataTableBodyComponent<TRow extends { treeStatus?: TreeStatus } = any>
