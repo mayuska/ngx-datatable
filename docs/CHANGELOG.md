@@ -1,4 +1,26 @@
-# Changelog
+# CHANGELOG
+
+## HEAD (unreleased)
+
+## 21.0.0-alpha.1
+
+- Fix: Add missing package files from deployment.
+
+## 21.0.0-alpha.0
+
+- Breaking: support for angular 19
+
+## 20.1.0
+
+- Chore: Support for angular 13+
+
+## 20.0.0
+
+- Breaking: Update to angular 12
+
+## 19.0.0
+
+- Breaking: Update to angular 11
 
 ## 18.0.0
 
@@ -10,7 +32,7 @@
 
 ## 17.0.0
 
-- Chore: explicitly only suppot ng9
+- Chore: explicitly only support ng9
 
 ## 16.1.1
 
@@ -24,7 +46,7 @@
 - Fix: redraw after recalculate (#1816)
 - Fix: undefined row index for rows in groups (#1857)
 - Chore: Add pretty-quick as a precommit hook using husky (#1841)
-- Chore: Bump dependecies (#1858, #1862, #1859)
+- Chore: Bump dependencies (#1858, #1862, #1859)
 
 ## 16.0.3
 

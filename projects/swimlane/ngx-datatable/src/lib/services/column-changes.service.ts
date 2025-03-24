@@ -8,13 +8,13 @@ import { Observable, Subject } from 'rxjs';
  */
 @Injectable()
 export class ColumnChangesService {
-  private columnInputChanges = new Subject<undefined>();
+  private columnInputChanges = new Subject<void>();
 
-  get columnInputChanges$(): Observable<undefined> {
+  get columnInputChanges$(): Observable<void> {
     return this.columnInputChanges.asObservable();
   }
 
   onInputChange(): void {
-    this.columnInputChanges.next();
+    this.columnInputChanges.next(undefined);
   }
 }
