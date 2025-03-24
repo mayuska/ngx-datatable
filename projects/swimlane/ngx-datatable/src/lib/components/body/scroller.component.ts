@@ -10,11 +10,8 @@ import {
   OnInit,
   Output,
   Renderer2,
-  ChangeDetectionStrategy,
   HostListener
 } from '@angular/core';
-
-import { MouseEvent } from '../../events';
 
 @Component({
   selector: 'datatable-scroller',
@@ -51,10 +48,6 @@ export class ScrollerComponent implements OnInit, OnDestroy {
   parentElement: HTMLElement;
 
   private _scrollEventListener: any = null;
-
-  constructor(private ngZone: NgZone, element: ElementRef, private renderer: Renderer2) {
-    this.element = element.nativeElement;
-  }
 
   /**
    * Decrease scrollWidth by window scrollbar width.
