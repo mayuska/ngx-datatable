@@ -12,7 +12,7 @@
     "test": "yarn lint && yarn test:unit",
     "test:unit": "ng test at-ngx-datatable --watch=false",
     "test:watch": "ng test at-ngx-datatable",
-    "test:ci": "ng test at-ngx-datatable --watch=false --progress=false --browsers=ChromeHeadlessCI",
+    "test:ci": "ng test at-ngx-datatable --watch=false --progress=false --browsers=ChromeHeadless",
     "ci": "yarn lint && yarn prettier:ci && yarn test:ci",
     "lint": "ng lint at-ngx-datatable",
     "e2e": "ng e2e",
