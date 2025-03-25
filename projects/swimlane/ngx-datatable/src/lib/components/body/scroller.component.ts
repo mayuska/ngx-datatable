@@ -4,13 +4,13 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
+  HostListener,
   inject,
   Input,
   OnDestroy,
   OnInit,
   Output,
   Renderer2,
-  HostListener
 } from '@angular/core';
 
 @Component({
