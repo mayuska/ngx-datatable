@@ -12,7 +12,6 @@ import { DataTableColumnGhostCellDirective } from './components/columns/column-g
 import { DataTableColumnCellTreeToggle } from './components/columns/tree.directive';
 import { DatatableFooterDirective } from './components/footer/footer.directive';
 import { DatatableGroupHeaderTemplateDirective } from './components/body/body-group-header-template.directive';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DisableRowDirective } from './directives/disable-row.directive';
 import {
   DatatableRowDefComponent,
@@ -21,7 +20,6 @@ import {
 
 @NgModule({
   imports: [
-    DragDropModule,
     DataTableFooterTemplateDirective,
     DatatableComponent,
     DataTableColumnDirective,

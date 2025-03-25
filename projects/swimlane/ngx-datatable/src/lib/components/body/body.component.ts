@@ -15,8 +15,6 @@ import {
   TrackByFunction,
   ViewChild
 } from '@angular/core';
-import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
-import { NgxRowReorder } from '../../types/reorder.type';
 import { ScrollerComponent } from './scroller.component';
 import { columnGroupWidths, columnsByPin } from '../../utils/column';
 import { RowHeightCache } from '../../utils/row-height-cache';
@@ -76,8 +74,6 @@ import { DataTableGhostLoaderComponent } from './ghost-loader/ghost-loader.compo
     >
       @if (rows?.length) {
         <datatable-scroller
-          cdkDropList
-          (cdkDropListDropped)="onDragEnded($event)"
           [scrollbarV]="scrollbarV"
           [scrollbarH]="scrollbarH"
           [scrollHeight]="scrollHeight()"
@@ -96,10 +92,6 @@ import { DataTableGhostLoaderComponent } from './ghost-loader/ghost-loader.compo
           }
           @for (group of rowsToRender(); track rowTrackingFn(i, group); let i = $index) {
             <datatable-row-wrapper
-              cdkDrag
-              [cdkDragPreviewClass]="'ngx-drag-preview'"
-              [cdkDragDisabled]="!reorderableRows"
-              [cdkDragData]="this"
               #rowWrapper
               [attr.hidden]="
                 ghostLoadingIndicator && (!rowCount || !virtualization || !scrollbarV) ? true : null
@@ -270,9 +262,7 @@ import { DataTableGhostLoaderComponent } from './ghost-loader/ghost-loader.compo
     NgStyle,
     DatatableRowDefInternalDirective,
     DataTableBodyRowComponent,
-    DraggableDirective,
-    CdkDropList,
-    CdkDrag
+    DraggableDirective
   ]
 })
 export class DataTableBodyComponent<TRow extends { treeStatus?: TreeStatus } = any>
@@ -297,7 +287,6 @@ export class DataTableBodyComponent<TRow extends { treeStatus?: TreeStatus } = a
   @Input() displayCheck: (row: TRow, column: TableColumn, value?: any) => boolean;
   @Input() trackByProp: string;
   @Input() rowClass: (row: RowOrGroup<TRow>) => string | Record<string, boolean>;
-  @Input() reorderableRows: boolean;
   @Input() groupedRows: Group<TRow>[];
   @Input() groupExpansionDefault: boolean;
   @Input() innerWidth: number;
@@ -409,7 +398,6 @@ export class DataTableBodyComponent<TRow extends { treeStatus?: TreeStatus } = a
   @Output() detailToggle: EventEmitter<any> = new EventEmitter();
   @Output() rowContextmenu = new EventEmitter<{ event: MouseEvent; row: RowOrGroup<TRow> }>(false);
   @Output() treeAction: EventEmitter<{ row: TRow }> = new EventEmitter();
-  @Output() rowsReorder: EventEmitter<NgxRowReorder> = new EventEmitter();
 
   @ViewChild(ScrollerComponent) scroller: ScrollerComponent;
 
@@ -538,19 +526,6 @@ export class DataTableBodyComponent<TRow extends { treeStatus?: TreeStatus } = a
     this.scroller.setOffset(offset || 0);
   }
 
-  /** Emits reordered rows and {@link CdkDragDrop} event. */
-  onDragEnded(event: CdkDragDrop<any>) {
-    const previousOrder = [...this._rows];
-    moveItemInArray(this.rows, event.previousIndex, event.currentIndex);
-    this.updateRows();
-    this.rowsReorder.emit({
-      current: this._rows,
-      previous: previousOrder,
-      currentIndex: event.currentIndex,
-      previousIndex: event.previousIndex,
-      event
-    });
-  }
   /**
    * Body was scrolled, this is mainly useful for
    * when a user is server-side pagination via virtual scroll.
