@@ -1,5 +1,12 @@
 # at-ngx-datatable
 
+## 7.3.1
+- revert emitting custom event `resizeStart`
+
+## 7.3.0
+- update fork with origin
+- remove custom solution for row drag & drop
+
 ## 7.0.0
 
 ### Breaking changes:

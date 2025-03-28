@@ -22,6 +22,7 @@
         [enableClearingSortState]="enableClearingSortState"
         (sort)="onColumnSort($event)"
         (resize)="onColumnResize($event)"
+        (resizeStart)="resizeStart.emit($event)"
         (resizing)="onColumnResizing($event)"
         (reorder)="onColumnReorder($event)"
         (select)="onHeaderSelect()"
