@@ -5070,7 +5070,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"at-ngx-datatable@npm:7.3.0, at-ngx-datatable@workspace:.":
+"at-ngx-datatable@workspace:.":
   version: 0.0.0-use.local
   resolution: "at-ngx-datatable@workspace:."
   dependencies:
@@ -5104,7 +5104,6 @@ __metadata:
     "@typescript-eslint/utils": "npm:8.23.0"
     "@web/test-runner": "npm:^0.19.0"
     angular-cli-ghpages: "npm:^2.0.0"
-    at-ngx-datatable: "npm:7.3.0"
     cpx: "npm:^1.5.0"
     cross-env: "npm:^7.0.2"
     eslint: "npm:8.57.0"
